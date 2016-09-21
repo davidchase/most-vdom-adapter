@@ -12,7 +12,7 @@ npm -i -S most-vdom-adapter
 
 ## Usage
 
-With snabbdom:
+With [snabbdom](https://github.com/snabbdom/snabbdom):
 
 ```js
 import {compose as compose2} from '@most/prelude'
@@ -42,7 +42,7 @@ const vnode = h('button.btn', {
 patch(document.querySelector('.container'), vnode)
 ```
 
-With inferno w/ createBlueprint:
+With [inferno](https://github.com/trueadm/inferno) w/ createBlueprint:
 
 ```js
 import {compose as compose2} from '@most/prelude'
