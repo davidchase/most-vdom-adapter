@@ -76,6 +76,8 @@ render(reallyCoolBtn({
     onclick: compose(drain, tap(log), take(4), map(event => event.target), adapter) 
 }, 'Let it Burn!'), document.querySelector('.container'))
 ```
+## Todo
+- [ ] add tests
 
 ## Made with
 
