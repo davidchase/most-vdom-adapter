@@ -1,5 +1,6 @@
 [![API stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+[![npm version](https://img.shields.io/npm/v/most-vdom-adapter.svg)](https://www.npmjs.com/package/most-vdom-adapter)
 # most-vdom-adapter
 
 > Experimental Most Adapter for vdoms
