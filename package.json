@@ -1,5 +1,5 @@
 {
-  "name": "@most/most-vdom-adapter",
+  "name": "most-vdom-adapter",
   "description": "most-vdom-adapter",
   "version": "1.0.0",
   "author": "David Chase <davidchase03@gmail.com> (github.com/davidchase)",
