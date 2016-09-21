@@ -1,7 +1,7 @@
 /** @license MIT License (c) copyright 2016 original author or authors */
 import {Stream} from 'most'
 
-export const adapter = evnt => new Stream(new AdapterSource(evnt))
+export default evnt => new Stream(new AdapterSource(evnt))
 
 class AdapterSource {
    constructor (evnt) {

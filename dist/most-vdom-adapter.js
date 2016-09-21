@@ -1,11 +1,11 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('most')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'most'], factory) :
-  (factory((global['mostVdomAdapter'] = global.most-vdom-adapter || {}),global.most));
-}(this, (function (exports,most) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('most')) :
+  typeof define === 'function' && define.amd ? define(['most'], factory) :
+  (global['mostVdomAdapter'] = factory(global.most));
+}(this, (function (most) { 'use strict';
 
 /** @license MIT License (c) copyright 2016 original author or authors */
-var adapter = function (evnt) { return new most.Stream(new AdapterSource(evnt)); }
+var index = function (evnt) { return new most.Stream(new AdapterSource(evnt)); }
 
 var AdapterSource = function AdapterSource (evnt) {
   this.evnt = evnt
@@ -22,8 +22,6 @@ AdapterSource.prototype.run = function run (sink, scheduler) {
   return { dispose: dispose }
 };
 
-exports.adapter = adapter;
-
-Object.defineProperty(exports, '__esModule', { value: true });
+return index;
 
 })));
