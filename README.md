@@ -1,33 +1,52 @@
-# mostjs package-starter
+[![API stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+# most-vdom-adapter
 
-A starting point for new `@most` packages.
+> Experimental Most Adapter for vdoms
+
+## Get It
+```sh
+npm -i -S most-vdom-adapter
+```
 
 ## Usage
 
-### Get it
+With snabbdom:
 
-```shell
-$ git clone https://github.com/mostjs/package-starter my-awesome-package
-$ cd my-awesome-package
-$ rm -rf ./.git
-$ git init
-$ npm install
-$ sed -i 's/mostPackage/my-awesome-package/g' package.json
+```js
+import {compose as compose2} from '@most/prelude'
+import {drain} from 'most'
+import adapter from 'most-vdom-adapter'
+
+import snabbdom from 'snabbdom'
+import events from 'snabbdom/modules/eventlisteners' 
+import attrs from 'snabbdom/modules/attributes'
+import clss from 'snabbdom/modules/class'
+import h from 'snabbdom/h'
+
+const compose = (...fns) = fns.reduce(compose2)
+const tap = fn => s => s.tap(fn)
+const map = fn => s => s.map(fn)
+const take = n => s => s.take(n)
+const log = console.log.bind(console)
+
+const patch = snabbdom.init([events, attrs, clss])
+
+const vnode = h('button.btn', {
+  on: {
+    'click': compose(drain, tap(log), take(4), map(event => event.target), adapter) 
+  }
+}, 'Really Cool Button')
+
+patch(document.querySelector('.container'), vnode)
 ```
 
-or one-line install:
+## Made with
 
-```
-bash <(curl -sSL https://git.io/vr1HI)
-```
+[@most/package-starter](https://github.com/mostjs/package-starter)
 
-### Use it
 
-In your editor:
 
-1. Add a description of your awesome package and
-make sure to give yourself credit as the 'author' in the package.json
-2. Create well-tested awesomeness. :fire::fire:
-3. Tell us about the awesomeness you just created in your README.md
 
-Get this thing up on Github and NPM!
+
+
