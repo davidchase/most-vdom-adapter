@@ -41,6 +41,41 @@ const vnode = h('button.btn', {
 patch(document.querySelector('.container'), vnode)
 ```
 
+With inferno w/ createBlueprint:
+
+```js
+import {compose as compose2} from '@most/prelude'
+import {drain} from 'most'
+import adapter from 'most-vdom-adapter'
+
+import {createBlueprint} from 'inferno'
+import {render} from 'inferno-dom'
+
+const compose = (...fns) = fns.reduce(compose2)
+const tap = fn => s => s.tap(fn)
+const map = fn => s => s.map(fn)
+const take = n => s => s.take(n)
+
+const log = console.log.bind(console)
+
+const reallyCoolBtn = createBlueprint({
+    tag: 'button',
+    attrs: {
+        class: 'btn'
+    },
+    events: {
+        arg: 0
+    },
+    children: {
+        arg: 1
+    }
+})
+
+render(reallyCoolBtn({
+    onclick: compose(drain, tap(log), take(4), map(event => event.target), adapter) 
+}, 'Let it Burn!'), document.querySelector('.container'))
+```
+
 ## Made with
 
 [@most/package-starter](https://github.com/mostjs/package-starter)
