@@ -1,7 +1,7 @@
 {
   "name": "most-vdom-adapter",
   "description": "most-vdom-adapter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "David Chase <davidchase03@gmail.com> (github.com/davidchase)",
   "bugs": {
     "url": "https://github.com/mostjs/most-vdom-adapter/issues"
